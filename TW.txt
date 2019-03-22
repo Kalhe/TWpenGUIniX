@@ -1,0 +1,37 @@
+bastion, ce credentiale folosesti -> encriptare
+cheie ssh -> ii gen userului o cheie privata ascunsa si dai cheie publica
+
+agent:
+
+complicat ca tre sa-l scrii
+impachetat usor, pornit usor ca serviciu sub user privilegiat, acces la tot in sistem
+daca doar raporteaza, e bine
+dar el nu face asta: instaleaza pachet, da log-uri etc
+nu e asa rau tho
+dar nu exista conectivitate inversa
+long pulling
+hey ai cv pt mine? (periodic, agentul la server)
+mai secure: ii faci credentiale agentului, un token - semneaza toate mesajele cu token-ul
+ssl: clientul verifica daca serverul e valid si vice-versa
+
+putem scapa de certificate daca generam o serie de credentials pt fie agent
+
+ce ar trebui sa avem:
+dashboard in care sa vedem ce masini sunt disponibile
+fiecare agent se inregistreaza singur -> la first run???
+agenti pending, sau autoinregistrare, sau adaugam noi etc
+lista de agenti si care e starea lor
+o pagina pt fiecare agent cu starea lui: up, running, ce are instalat, ce colecteaza-> o pagina cu lista de agenti si informatii despre fiecare(aduse din baza de date) in functie de ce agent ai selectat
+o pagina in care sa se poata face actiuni:
+
+1 lasam utilizatorul sa scrie comenzi -> responsabilitatea de a scrie corect e a lui, problema de security (asta e deja ca salt...)
+
+2 presets - server web, database - vreau sa ajunga asta: ce versiune? optiuni, ce mai vrei etc astfel agentul stie ce tre sa faca in functie de unde este
+
+sa ai puterea sa faci presets din consola, dar sa trebuiasca un admin de pe masina cu server sa dea accept la comanda
+
+site pe master server si serverele sa aiba niste clienti sub comanda
+
+FACEM DOAR UI!!!!!!!!!!!!!!!!!!!! pt sapt 5
+
+GUI si GIT
