@@ -1,20 +1,3 @@
-.logon{
-	display:block;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.login{
-	margin-bottom: 20px;
-}
-.btn {
-  border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-
-}
 .header {
 	background-color: lightblue;
 	border-style: ridge;
@@ -36,17 +19,40 @@
 	color: #FFFFFF;
 }
 
+.comanda{
+	padding: 10px 20px;
+	background-color: #008CBA;
+	
+}
+
 f{
 	color: darkblue
 }
 
 h1{
-	
 	font-weight: bold;
 	color: #FF0004;
 	text-align: center;
 }
 h2{
+	font-size: 100%;
+	color: darkblue;
+	text-align: center;
+}
+
+h3{
+	font-size: 100%;
+	color: #007FFF;
+	text-align: center;
+}
+
+h4{
+	font-size: 100%;
+	color: darkblue;
+	text-align: center;
+}
+
+command{
 	font-size: 100%;
 	color: darkblue;
 	text-align: center;
@@ -73,7 +79,6 @@ a {
 .main{
 	width:100%;
 	border-style: ridge;
-
 }
 .top{
 	background-color: #C8C8C8;
@@ -82,11 +87,14 @@ a {
 	width:100%;
 }
 .footer{
+	position: fixed;
 	text-align: center;
 	font-family: "White Rabbit";
 	font-size: large;
 	border-style: ridge;
-	width:100%
+	width:100%;
+	bottom: 0;
+	left: 0;
 }
 tbody {
 		width:100%;
