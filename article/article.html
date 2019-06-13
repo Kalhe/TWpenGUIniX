@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="ro"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>penGUIniX</title>
+<link rel="stylesheet" href="scholarly.css">
+<link rel="stylesheet" href="prism-coy.css">
+<script src="prism.js" defer=""></script>
+</head>
+<body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+<header>
+<p class="title">penGUIniX</p>
+</header>
+<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+<h1>penGUIniX</h1>
+<section>
+<ol>
+<li>
+<span>Magureanu</span>
+<span>Andrei-Paul</span>
+
+</li>
+
+
+
+
+
+</ol>
+</section>
+
+<section>
+<h3>Cuprins:</h3>
+<ol>
+<li> <a href="#Introducere"> Introducere  </a></li>
+<li> <a href="#Tehnologii"> Tehnologii utilizate  </a></li>
+<li> <a href="#Arhitectura">  Arhitectura  </a></li>
+<li> <a href="#Detalii"> Detalii Implementare  </a></li>
+<li> <a href="#Actori si obiective"> Actori si obiective  </a></li>
+<li> <a href="#Scenarii de utilizare"> Scenarii de utilizare  </a></li>
+<li> <a href="#Concluzii"> Concluzii  </a></li>
+<li> <a href="#Webografie"> Webografie  </a></li>
+</ol>
+</section>
+
+<section typeof="sa:Abstract">
+<a name="Introducere"></a>
+<h3>1) Introducere</h3>
+
+Aplicatia penGUIniX este un tool de management si monitorizare a sistemelor de masini linux. Oferind utilizatorului posibilitatea de a vizualiza in timp real date de sistem cat si a executa comenzi remote, penGUIniX simplifica mult administrarea retelei tale locale!
+
+</section>
+
+<section typeof="sa:Results">
+<a name="Tehnologii"></a>
+<h3>2) Tehnologii utilizate</h3>
+
+<p>
+
+Pentru implementare proiectului am folosit HyperText Transfer Protocol. 
+Pentru stilizarea experientei utilizatorului vom folosi Cascading Style Sheets cu ultima sa versiune.
+Pentru managementul informatiei am folosit bazele de date MySQL . 
+Interfata Web va consta din incarcarea in paginile HTML a elementelor de design din CSS , sustinute de arhitectura in limbajul PHP,dar si JavaScript.
+Pentru executarea partii de linux, am folosit scripturi bash, colectia de comenzi sysstat si openssh.
+Serverul ruleaza in mediu apache2.
+
+</p>
+</section>
+
+<section typeof="sa:Results">
+<a name="Arhitectura"></a>
+<h3>3) Arhitectura</h3>
+
+<p>
+Aplicatia se imparte in 3 parti. Partea web, partea bash, si baza de date. Pe interfata web, clientul se poate loga (operatie efectuata la nivel sesiune), dupa care dash-boardul i-i va furniza detalii in timp real despre masinile din sistem. Deasemenea, poate emite comenzi masinilor din retea. Comenzile sunt administrate pe pagina setting, unde se pot adauga, edita sau sterge.
+	<br><br>
+Modelul arhitectural este MVC, reprezentand un o arhitectura in care view-ul se ocupa cu afisarea datelor, modelul reprezinta datele si operatiunile efectuate direct peste date, iar controllerul administreaza ambele parti, efectuand peste model operatiuni in functie de nevoile utilizatorului, urmand sa afiseze datele inapoi in view. Concret, view-ul reprezinta interfata html/php+css, model-ul sunt comenzile si statisticile din baza de date si scripturile php care le administreaza , iar controllerul sunt scripturi in JavaScript, care percep comenzile introduse in view, si furnizeaza rezultatul apeland diverse scripturi php din model. Rezultatul comenzilor emise din interfata sunt preluate din baza de date de catre un sistem de scripturi bash, care le executa folosind ssh.
+
+
+
+</p>
+<br><br>
+
+
+
+
+
+
+<section typeof="sa:Results">
+<a name="Detalii"></a>
+<h3>4) Detalii De implementare</h3>
+
+<p>
+
+Dupa accesarea adresei , va aparea meniul de login . Odata ce datele au fost introduse in meniul de login , se va face o interogare in baza de date daca userul exista,iar daca nu se returneaza nici un row la introducerea datelor,userul va fi promptat sa incerce din nou. In caz contrar, userul va fi redirectionat catre Dashboard. 
+
+
+</p>
+
+
+
+
+
+
+<h4> 4.1 Diagrame </h4>
+
+<figure typeof="sa:Image">
+<center><p><img src="Dash.png" alt="Diagrama" width="60%"/></p> Dashboard</center>
+<center><p><img src="Commands.png" alt="Diagrama" width="60%"/></p> Commands</center>
+<center><p><img src="SettingsD.png" alt="Diagrama" width="60%"/></p> Settings</center>
+<center><p><img src="Server.png" alt="Diagrama" width="60%"/></p> Diagrama Scripturi Server</center>
+</figure>
+
+</section>
+<h4> 4.2 Interfata actuala</h4>
+
+<figure typeof="sa:Image">
+<center><p><img src="Login.png"  width="90%"/></p> </center>
+<center><p><img src="Dashboard.png"  width="90%"/></p> </center>
+<center><p><img src="Command.png"  width="90%"/></p> </center>
+<center><p><img src="Settings.png"  width="90%"/></p> </center>
+
+</figure>
+
+<section typeof="sa:ReferenceList">
+<a name="Actori si obiective"></a>
+</section>
+
+
+
+
+<h3> 5)Actori si obiective </h3>
+<p>Utilizatorul: doreste sa verifice starea masinilor din rete si/sau sa emita comenzi  </p>
+
+<p>Interfata : sa afiseze in timp real date despre masinile din sistem si sa permita utilizatorului sa ruleze comenzi si sa vada rezultatul.</p>
+
+<p>Serverul: sa updateze baza de date cu inforatiile necesare si sa ruleze comenzi in retea.</p>
+
+
+
+<section typeof="sa:ReferenceList">
+<a name="Scenarii de utilizare"></a>
+</section>
+
+
+
+
+<h3> 6)Scenarii de utilizare </h3>
+<p>
+Următoarele cazuri descriu modul în care lucreaza aplicatia si ce poate ea oferi utilizatorilor:</p>
+
+<h4>1. Logarea in aplicatie</h4>
+<p>1.Userul intra pe pagina de autentificare, unde va fi nevoit sa introduca ussername si parola.</p>
+	<p>1.a. Daca datele introduse sunt corecte, userul va fi redirectionat catre Dashboard, unde poate vedea n timp real date despre sistem</p>
+	<p>1.b. Daca credentialele sunt gresite, userul va fi redirectionat la 1.</p>
+<h4>2. Executarea unei comenzi</h4>
+<p>1. Utilizatorul va intra pe pagina commands, unde va putea selecta un server si o comanda, urmand apoi sa apese butonul run.</p>
+<p>2. Rezultatul comenzii va fi afisat pe pagina, intr-un spatiu de text.</p>
+
+<h4>1.3. Administrarea comenzilor</h4>
+<p>1. Pe pagina Settings, utilizatorul va avea posibilitatea sa adauge, editeze sau sa stearga comenzi din baza de date.</p>
+<p>2.a. Utilizatorul poate scrie o comanda in spatiul pentru text, apoi sa apese pe butonul add pentru a o adauga in baza de date</p>
+<p>2.b. Utilizatorul poate selecta o comanda, sa o editeze in spatiu text apoi sa apese butonul edit pentru a o modifica.</p>
+<p>3. Utilizatorul poate selecta o comanda din baza de date, si apoi sa apese butonul delete pentru a o sterge.</p>
+	
+
+<section typeof="sa:ReferenceList">
+<a name="Concluzii"></a>
+
+
+
+
+<h3> 6) Concluzii </h3>
+<p>
+
+Aplicatia ofera o unealta la indemana pentru un administrator de sistem care vrea sa aiba un overview rapid asupra sistemului si un pic de control, dintr-un singur loc. Varianta prezentata este demonstrativa deabia, potentialul penGUIniX fiind inca neatins dar cu o echipa mai mare si niste unelte mai bune ar putea deveni un Zabbix cu puteri de SaltStack!
+
+</p>
+
+
+
+</section>
+
+<section typeof="sa:ReferenceList">
+<a name="Webografie"></a>
+<h3>Webografie</h3>
+
+<ul>
+<li> <a href="http://profs.info.uaic.ro/~busaco/teach/courses"> Cursuri TW </a> </li>
+<li> <a href="https://www.php.net/">PHP Learning</a> </li>
+<li> <a href="https://www.w3schools.com/">W3School</a></li>
+
+
+
+
+
+</ul>
+</section>
+</article>
+<footer>
+<p>
+<a href="http://www.info.uaic.ro/bin/Main/">FII</a>
+•
+<a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">Tehnologii Web</a>
+•
+<a href="https://iampava.com/tw/">Proiecte</a>
+</p>
+</footer>
+</body></html>
